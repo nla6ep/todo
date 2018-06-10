@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Create Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for todo in todos %}
+        <tr>
+            <th scope="row">{{ todo.id }}</th>
+            <td>{{ todo.name }}</td>
+            <td>{{ todo.description }}</td>
+            <td>{{ todo.category }}</td>
+            <td>{{ todo.dueDate }}</td>
+            <td>{{ todo.createDate | date('d-m-y') }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
